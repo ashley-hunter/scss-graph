@@ -179,7 +179,7 @@ class Graph {
   }
 }
 
-function processOptions(options: GraphOptions): GraphOptions {
+function processOptions(options?: GraphOptions): GraphOptions {
   return {
     loadPaths: [process.cwd()],
     extensions: ['scss', 'sass'],
@@ -187,7 +187,7 @@ function processOptions(options: GraphOptions): GraphOptions {
   };
 }
 
-export function parseFile(filepath: string, options: GraphOptions): Graph {
+export function parseFile(filepath: string, options?: GraphOptions): Graph {
   if (fs.lstatSync(filepath).isFile()) {
     filepath = path.resolve(filepath);
     options = processOptions(options);
@@ -199,7 +199,7 @@ export function parseFile(filepath: string, options: GraphOptions): Graph {
   throw new Error(`Invalid file: ${filepath}`);
 }
 
-export function parseDir(dirpath: string, options: GraphOptions): Graph {
+export function parseDir(dirpath: string, options?: GraphOptions): Graph {
   if (fs.lstatSync(dirpath).isDirectory()) {
     dirpath = path.resolve(dirpath);
     options = processOptions(options);
