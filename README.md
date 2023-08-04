@@ -13,7 +13,7 @@ npm install --save-dev @ashley-hunter/sass-graph
 Usage as a Node library:
 
 ```js
-import sassGraph from './sass-graph';
+import sassGraph from '@ashley-hunter/sass-graph';
 ```
 
 ## API

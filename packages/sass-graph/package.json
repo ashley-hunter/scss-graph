@@ -1,12 +1,12 @@
 {
   "name": "@ashley-hunter/sass-graph",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "repository": {
     "url": "https://github.com/ashley-hunter/scss-graph"
   },
   "license": "MIT",
   "dependencies": {
-    "scss-tokenizer": "0.4.2",
+    "scss-tokenizer": "0.4.3",
     "glob": "8.0.3",
     "lodash": "4.17.21"
   }

@@ -188,6 +188,16 @@ function processOptions(options?: GraphOptions): GraphOptions {
 }
 
 export function parseFile(filepath: string, options?: GraphOptions): Graph {
+  // if the file does not exist try and prefix it with the current working directory
+  if (!fs.existsSync(filepath)) {
+    filepath = path.resolve(process.cwd(), filepath);
+
+    // if that doesn't exist either then throw an error
+    if (!fs.existsSync(filepath)) {
+      throw new Error(`File not found: ${filepath}`);
+    }
+  }
+
   if (fs.lstatSync(filepath).isFile()) {
     filepath = path.resolve(filepath);
     options = processOptions(options);
@@ -200,6 +210,16 @@ export function parseFile(filepath: string, options?: GraphOptions): Graph {
 }
 
 export function parseDir(dirpath: string, options?: GraphOptions): Graph {
+  // if the directory does not exist try and prefix it with the current working directory
+  if (!fs.existsSync(dirpath)) {
+    dirpath = path.resolve(process.cwd(), dirpath);
+
+    // if that doesn't exist either then throw an error
+    if (!fs.existsSync(dirpath)) {
+      throw new Error(`Directory not found: ${dirpath}`);
+    }
+  }
+
   if (fs.lstatSync(dirpath).isDirectory()) {
     dirpath = path.resolve(dirpath);
     options = processOptions(options);
